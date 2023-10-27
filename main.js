@@ -1,4 +1,7 @@
-const resultadosAlmacenados = [];
+const resultadosAlmacenados = {
+    operaciones: [],
+    conversiones: []
+};
 
 function calcularResultado() {
     const num1 = parseFloat(document.getElementById("num1").value);
@@ -33,7 +36,7 @@ function calcularResultado() {
     }
 
     document.getElementById("resultado").textContent = `Resultado: ${resultado}`;
-    resultadosAlmacenados.push(`Operación: ${num1} ${operacion} ${num2} = ${resultado}`);
+    resultadosAlmacenados.operaciones.push(`Operación: ${num1} ${operacion} ${num2} = ${resultado}`);
     actualizarResultadosAlmacenados();
 }
 
@@ -62,14 +65,21 @@ function convertirUnidad() {
     }
 
     document.getElementById("conversion-result").textContent = `Resultado: ${resultado}`;
-    resultadosAlmacenados.push(`Conversión: ${valor} ${conversion} = ${resultado}`);
+    resultadosAlmacenados.conversiones.push(`Conversión: ${valor} ${conversion} = ${resultado}`);
     actualizarResultadosAlmacenados();
 }
 
 function actualizarResultadosAlmacenados() {
     const resultadosList = document.getElementById("resultados-almacenados");
     resultadosList.innerHTML = "";
-    resultadosAlmacenados.forEach(resultado => {
+    
+    resultadosAlmacenados.operaciones.forEach(resultado => {
+        const listItem = document.createElement("li");
+        listItem.textContent = resultado;
+        resultadosList.appendChild(listItem);
+    });
+
+    resultadosAlmacenados.conversiones.forEach(resultado => {
         const listItem = document.createElement("li");
         listItem.textContent = resultado;
         resultadosList.appendChild(listItem);
