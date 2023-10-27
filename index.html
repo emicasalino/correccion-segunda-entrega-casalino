@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saca tus dudas</title>
+</head>
+<body>
+    <h1>Calculadora y Conversor</h1>
+    <form id="calculator-form">
+        <input type="number" id="num1" placeholder="Número 1" required>
+        <input type="number" id="num2" placeholder="Número 2" required>
+        <select id="operation">
+            <option value="sumar">Sumar (+)</option>
+            <option value="restar">Restar (-)</option>
+            <option value="multiplicar">Multiplicar (*)</option>
+            <option value="dividir">Dividir (/)</option>
+            <option value="porcentaje">Porcentaje (%)</option>
+        </select>
+        <button type="button" onclick="calcularResultado()">Calcular</button>
+    </form>
+    <div id="resultado"></div>
+    
+    <h2>Conversor de Unidades</h2>
+    <form id="converter-form">
+        <input type="number" id="valor" placeholder="Valor" required>
+        <select id="conversion">
+            <option value="kmToMiles">Kilómetros a Millas</option>
+            <option value="mToYard">Metros a Yardas</option>
+            <option value="cmToInches">Centímetros a Pulgadas</option>
+            <option value="kmhToKnots">Kilómetros por Hora a Nudos</option>
+        </select>
+        <button type="button" onclick="convertirUnidad()">Convertir</button>
+    </form>
+    <div id="conversion-result"></div>
+
+    <h2>Resultados Almacenados</h2>
+    <ul id="resultados-almacenados"></ul>
+
+    <script src="main.js"></script>
+</body>
+</html>
